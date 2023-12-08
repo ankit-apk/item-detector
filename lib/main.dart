@@ -87,8 +87,8 @@ class _BottomNavigationBarExampleState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset('assets/images/tfl_logo.png'),
-        backgroundColor: Colors.black.withOpacity(0.5),
+        title: const Text("Grocery Scanner"),
+        backgroundColor: Colors.white.withOpacity(0.5),
       ),
       body: Center(
         child: _widgetOptions?.elementAt(_selectedIndex),
@@ -97,15 +97,15 @@ class _BottomNavigationBarExampleState
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.image),
-            label: 'Gallery screen',
+            label: 'Use Gallery',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.camera),
-            label: 'Live Camera',
+            label: 'Use Camera',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.black,
         onTap: _onItemTapped,
       ),
     );

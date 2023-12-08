@@ -84,6 +84,7 @@ class ImageClassificationHelper {
         .send(inferenceModel..responsePort = responsePort.sendPort);
     // get inference result.
     var results = await responsePort.first;
+    print(results);
     return results;
   }
 

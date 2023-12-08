@@ -15,9 +15,11 @@
  */
 
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image/image.dart' as img;
 import 'package:image_picker/image_picker.dart';
+
 import '../helper/image_classification_helper.dart';
 
 class GalleryScreen extends StatefulWidget {
@@ -75,47 +77,6 @@ class _GalleryScreenState extends State<GalleryScreen> {
     return SafeArea(
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              if (cameraIsAvailable)
-                TextButton.icon(
-                  onPressed: () async {
-                    cleanResult();
-                    final result = await imagePicker.pickImage(
-                      source: ImageSource.camera,
-                    );
-
-                    imagePath = result?.path;
-                    setState(() {});
-                    processImage();
-                  },
-                  icon: const Icon(
-                    Icons.camera,
-                    size: 48,
-                  ),
-                  label: const Text("Take a photo"),
-                ),
-              TextButton.icon(
-                onPressed: () async {
-                  cleanResult();
-                  final result = await imagePicker.pickImage(
-                    source: ImageSource.gallery,
-                  );
-
-                  imagePath = result?.path;
-                  setState(() {});
-                  processImage();
-                },
-                icon: const Icon(
-                  Icons.photo,
-                  size: 48,
-                ),
-                label: const Text("Pick from gallery"),
-              ),
-            ],
-          ),
-          const Divider(color: Colors.black),
           Expanded(
               child: Stack(
             alignment: Alignment.center,
@@ -179,6 +140,47 @@ class _GalleryScreenState extends State<GalleryScreen> {
               ),
             ],
           )),
+          const Divider(color: Colors.black),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              if (cameraIsAvailable)
+                TextButton.icon(
+                  onPressed: () async {
+                    cleanResult();
+                    final result = await imagePicker.pickImage(
+                      source: ImageSource.camera,
+                    );
+
+                    imagePath = result?.path;
+                    setState(() {});
+                    processImage();
+                  },
+                  icon: const Icon(
+                    Icons.camera_alt,
+                    size: 48,
+                  ),
+                  label: const Text("Take a picture"),
+                ),
+              TextButton.icon(
+                onPressed: () async {
+                  cleanResult();
+                  final result = await imagePicker.pickImage(
+                    source: ImageSource.gallery,
+                  );
+
+                  imagePath = result?.path;
+                  setState(() {});
+                  processImage();
+                },
+                icon: const Icon(
+                  Icons.photo,
+                  size: 48,
+                ),
+                label: const Text("Select From Gallery"),
+              ),
+            ],
+          ),
         ],
       ),
     );
