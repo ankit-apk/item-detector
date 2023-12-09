@@ -1,4 +1,4 @@
-package org.tensorflow.image_classification_mobilenet
+package com.ankitapk.productlisting
 
 import io.flutter.embedding.android.FlutterActivity
 

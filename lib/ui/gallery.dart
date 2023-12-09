@@ -83,8 +83,19 @@ class _GalleryScreenState extends State<GalleryScreen> {
             children: [
               if (imagePath != null) Image.file(File(imagePath!)),
               if (image == null)
-                const Text("Take a photo or choose one from the gallery to "
-                    "inference."),
+                const Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: Text(
+                    "Take a photo or choose one from the gallery to "
+                    "inference.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

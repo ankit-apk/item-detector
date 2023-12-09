@@ -15,6 +15,7 @@
  */
 
 import 'dart:io';
+
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:image_classification_mobilenet/helper/image_classification_helper.dart';
@@ -143,17 +144,47 @@ class CameraScreenState extends State<CameraScreen>
                       (a, b) => a.value.compareTo(b.value),
                     ))
                   .reversed
-                  .take(3)
+                  .take(1)
                   .map(
-                    (e) => Container(
-                      padding: const EdgeInsets.all(8),
-                      color: Colors.white,
-                      child: Row(
-                        children: [
-                          Text(e.key),
-                          const Spacer(),
-                          Text(e.value.toStringAsFixed(2))
-                        ],
+                    (e) => Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.7,
+                          padding: const EdgeInsets.all(8),
+                          color: Colors.deepPurple,
+                          child: Center(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text(
+                                  e.key.toUpperCase().replaceAll("_", " "),
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                Text(
+                                  e.value.toStringAsFixed(2),
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          // child: Row(
+                          //   children: [
+                          //     Text(e.key),
+                          //     const Spacer(),
+                          //     Text(e.value.toStringAsFixed(2))
+                          //   ],
+                          // ),
+                        ),
                       ),
                     ),
                   ),
