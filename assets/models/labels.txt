@@ -1,3 +1,5 @@
-dairy_milk
-good_day
+.ipynb_checkpoints
 jim_jam
+kurkure
+lays
+oreo
